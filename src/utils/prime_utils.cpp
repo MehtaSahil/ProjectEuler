@@ -39,7 +39,7 @@ std::vector<uint64_t> genPrimesUnder(uint64_t limit) {
   while (current_prime < limit) {
     primes.push_back(current_prime);
     // Mark multiplesof the current prime (under limit) as composite
-    uint64_t start = current_prime*current_prime;
+    uint64_t start = current_prime;
     for (uint64_t i = start; i < limit; i += current_prime) {
       sieve[i] = true;
     }
