@@ -4,3 +4,10 @@ cxx_binary(
         "p1.cpp",
     ],
 )
+
+cxx_binary(
+    name = "p2",
+    srcs = [
+        "p2.cpp",
+    ],
+)
