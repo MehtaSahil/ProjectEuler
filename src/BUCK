@@ -11,3 +11,13 @@ cxx_binary(
         "p2.cpp",
     ],
 )
+
+cxx_binary(
+    name = "p3",
+    srcs = [
+        "p3.cpp",
+    ],
+    deps = [
+        "//src/utils:prime_utils",
+    ],
+)
