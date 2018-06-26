@@ -1,0 +1,13 @@
+cxx_library(
+    name = "prime_utils",
+    header_namespace = 'utils',
+    srcs = [
+        "prime_utils.cpp",
+    ],
+    exported_headers = [
+        "prime_utils.h",
+    ],
+    visibility = [
+        "//...",
+    ],
+)
