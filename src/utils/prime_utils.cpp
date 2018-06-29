@@ -57,3 +57,17 @@ std::vector<uint64_t> genPrimesUnder(uint64_t limit) {
 
   return primes;
 }
+
+std::unordered_map<uint32_t, uint32_t> genPrimeFactorization(uint32_t n) {
+  std::unordered_map<uint32_t, uint32_t> factors;
+
+  /*
+  1) generate the primes under n
+  2) Starting with 2, if the prime is a factor increment the val in the map
+      where the key is the current prime. Additionally divide n by the prime
+  3) continue to divide by the prime factor until this is no longer possible
+  4) move to the next prime stopping at the end of the list
+  */
+
+  return factors;
+}
