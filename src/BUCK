@@ -21,3 +21,10 @@ cxx_binary(
         "//src/utils:prime_utils",
     ],
 )
+
+cxx_binary(
+    name = "p4",
+    srcs = [
+        "p4.cpp",
+    ],
+)
