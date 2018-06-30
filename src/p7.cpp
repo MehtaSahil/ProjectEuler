@@ -3,12 +3,12 @@
 #include <utils/prime_utils.h>
 #include <chrono>
 
-// Tests all numbers beginning with 2 and counts the number of primes
+// Tests all numbers beginning with 3 and counts the number of primes
 // Until we've reached the nth prime. Returns that nth prime
 int32_t bruteForcePrime(int32_t nth_prime) {
-  int32_t prime_index = 0;
-  int32_t current_num = 2;
-  int32_t current_prime = 0;
+  int32_t prime_index = 1;
+  int32_t current_num = 3;
+  int32_t current_prime = 3;
 
   while (prime_index < nth_prime) {
     if (isPrime(current_num)) {
@@ -16,7 +16,8 @@ int32_t bruteForcePrime(int32_t nth_prime) {
       current_prime = current_num;
     }
 
-    current_num++;
+    // Even numbers can't be prime
+    current_num += 2;
   }
 
   return current_prime;
@@ -73,30 +74,41 @@ int32_t sievePrime(int32_t nth_prime) {
 
 int main(int argc, char** argv) {
   int32_t n = 10001;
-  // int32_t n = 50000;
-
-  int32_t num_trials = 25;
-  auto start = std::chrono::high_resolution_clock::now();
-  for (int i = 0; i < num_trials; i++) {
-    bruteForcePrime(n);
-  }
-  auto mid = std::chrono::high_resolution_clock::now();
-  for (int i = 0; i < num_trials; i++) {
-    sievePrime(n);
-  }
-  auto stop = std::chrono::high_resolution_clock::now();
-
-  auto bruteDuration = std::chrono::duration_cast<std::chrono::microseconds>(mid-start).count();
-  auto sieveDuration = std::chrono::duration_cast<std::chrono::microseconds>(stop-mid).count();
-
-  // From previous runs, sievePrime for n = 10001 is more than 3.3 times faster!
-  // The advantage for n = 50000 grows to over 5 times and continues as n increases
-  std::cout << "performance factor: " << (double) bruteDuration / (double) sieveDuration << std::endl;
-
-  // int32_t result = bruteForcePrime(n);
   int32_t result = sievePrime(n);
-
   std::cout << result << std::endl;
+
+  // Performance testing
+  // for (int32_t n = 10000; n < 100000; n += 10000) {
+  //   int32_t num_trials = 25;
+  //   auto start = std::chrono::high_resolution_clock::now();
+  //   for (int i = 0; i < num_trials; i++) {
+  //     bruteForcePrime(n);
+  //   }
+  //   auto mid = std::chrono::high_resolution_clock::now();
+  //   for (int i = 0; i < num_trials; i++) {
+  //     sievePrime(n);
+  //   }
+  //   auto stop = std::chrono::high_resolution_clock::now();
+  //
+  //   auto bruteDuration = std::chrono::duration_cast<std::chrono::microseconds>(mid-start).count();
+  //   auto sieveDuration = std::chrono::duration_cast<std::chrono::microseconds>(stop-mid).count();
+  //
+  //   // From previous runs, sievePrime for n = 10001 is ~1.75  times faster!
+  //   // The advantage for n = 50000 grows to over 3.1 times
+  //   // std::cout << "performance factor: " << (double) bruteDuration / (double) sieveDuration << std::endl;
+  //   double performance_factor = (double) bruteDuration / (double) sieveDuration;
+  //
+  //   std::cout << "n=" << n << ", performance_factor=" << performance_factor << std::endl;
+  // }
+
+  // n=10000, performance_factor=1.80002
+  // n=20000, performance_factor=2.13358
+  // n=30000, performance_factor=2.49849
+  // n=40000, performance_factor=2.90021
+  // n=50000, performance_factor=2.77825
+  // n=60000, performance_factor=3.049
+  // n=70000, performance_factor=2.92771
+  // n=90000, performance_factor=3.29885
 
   return 0;
 }
