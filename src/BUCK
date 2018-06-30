@@ -42,3 +42,13 @@ cxx_binary(
         "p6.cpp",
     ],
 )
+
+cxx_binary(
+    name = "p7",
+    srcs = [
+        "p7.cpp",
+    ],
+    deps = [
+        "//src/utils:prime_utils",
+    ],
+)

@@ -1,6 +1,5 @@
 #include "prime_utils.h"
 #include <math.h>
-#include <iostream>
 
 bool isPrime(uint64_t n) {
   if (n <= 1) {
@@ -34,7 +33,7 @@ std::vector<uint64_t> genPrimesUnder(uint64_t limit) {
   // Using the sieve of Eratosthenes
   // sieve[n] == false if n is prime
   // sieve[n] == true if n is composite
-  bool* sieve = new bool[limit];
+  std::unordered_map<uint64_t, bool> sieve;
   uint64_t current_prime = 2;
   while (current_prime < limit) {
     primes.push_back(current_prime);
@@ -53,8 +52,6 @@ std::vector<uint64_t> genPrimesUnder(uint64_t limit) {
     current_prime = scanner;
   }
 
-  delete[] sieve;
-
   return primes;
 }
 
@@ -70,4 +67,10 @@ std::unordered_map<uint32_t, uint32_t> genPrimeFactorization(uint32_t n) {
   */
 
   return factors;
+}
+
+double numPrimesUnder(uint64_t n) {
+  // Use the prime number theorem
+  // https://en.wikipedia.org/wiki/Prime_number_theorem
+  return n / log(n);
 }

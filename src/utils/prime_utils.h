@@ -1,6 +1,7 @@
 #pragma once
 #include <cstdint>
 #include <vector>
+#include <unordered_map>
 
 // Is n a prime number?
 bool isPrime(uint64_t n);
@@ -12,3 +13,7 @@ bool isPrimeFactor(uint64_t factor, uint64_t n);
 std::vector<uint64_t> genPrimesUnder(uint64_t limit);
 
 std::unordered_map<uint32_t, uint32_t> genPrimeFactorization(uint32_t n);
+
+// Uses the prime number theorem to APPROXIMATE the number of primes under n
+// NOTE: This is not exact
+double numPrimesUnder(uint64_t n);
