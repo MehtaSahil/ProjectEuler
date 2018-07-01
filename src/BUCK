@@ -52,3 +52,10 @@ cxx_binary(
         "//src/utils:prime_utils",
     ],
 )
+
+cxx_binary(
+    name = "p8",
+    srcs = [
+        "p8.cpp",
+    ],
+)
