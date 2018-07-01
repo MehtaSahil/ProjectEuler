@@ -59,3 +59,10 @@ cxx_binary(
         "p8.cpp",
     ],
 )
+
+cxx_binary(
+    name = "p9",
+    srcs = [
+        "p9.cpp",
+    ],
+)
