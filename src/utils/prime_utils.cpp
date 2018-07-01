@@ -25,6 +25,8 @@ bool isPrimeFactor(uint64_t factor, uint64_t n) {
 std::vector<uint64_t> genPrimesUnder(uint64_t limit) {
   std::vector<uint64_t> primes;
 
+  uint64_t sqrt_limit = (uint64_t) sqrt(limit);
+
   // There are no primes less than 2
   if (limit < 2) {
     return primes;
@@ -50,6 +52,18 @@ std::vector<uint64_t> genPrimesUnder(uint64_t limit) {
     }
 
     current_prime = scanner;
+
+    if (current_prime > sqrt_limit) {
+      break;
+    }
+  }
+
+  for (uint64_t i = current_prime; i < limit; i++) {
+    if (sieve[i]) {
+      continue;
+    }
+
+    primes.push_back(i);
   }
 
   return primes;
