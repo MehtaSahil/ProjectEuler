@@ -1,21 +1,21 @@
 cxx_binary(
     name = "p1",
     srcs = [
-        "p1.cpp",
+        "p0001.cpp",
     ],
 )
 
 cxx_binary(
     name = "p2",
     srcs = [
-        "p2.cpp",
+        "p0002.cpp",
     ],
 )
 
 cxx_binary(
     name = "p3",
     srcs = [
-        "p3.cpp",
+        "p0003.cpp",
     ],
     deps = [
         "//src/utils:prime_utils",
@@ -25,28 +25,28 @@ cxx_binary(
 cxx_binary(
     name = "p4",
     srcs = [
-        "p4.cpp",
+        "p0004.cpp",
     ],
 )
 
 cxx_binary(
     name = "p5",
     srcs = [
-        "p5.cpp",
+        "p0005.cpp",
     ],
 )
 
 cxx_binary(
     name = "p6",
     srcs = [
-        "p6.cpp",
+        "p0006.cpp",
     ],
 )
 
 cxx_binary(
     name = "p7",
     srcs = [
-        "p7.cpp",
+        "p0007.cpp",
     ],
     deps = [
         "//src/utils:prime_utils",
@@ -56,21 +56,21 @@ cxx_binary(
 cxx_binary(
     name = "p8",
     srcs = [
-        "p8.cpp",
+        "p0008.cpp",
     ],
 )
 
 cxx_binary(
     name = "p9",
     srcs = [
-        "p9.cpp",
+        "p0009.cpp",
     ],
 )
 
 cxx_binary(
     name = "p10",
     srcs = [
-        "p10.cpp",
+        "p0010.cpp",
     ],
     deps = [
         "//src/utils:prime_utils",
@@ -80,7 +80,7 @@ cxx_binary(
 cxx_binary(
     name = "p11",
     srcs = [
-        "p11.cpp",
+        "p0011.cpp",
     ],
     deps = [
         "//src/utils:string_utils",
