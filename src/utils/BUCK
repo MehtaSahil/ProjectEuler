@@ -11,3 +11,17 @@ cxx_library(
         "//...",
     ],
 )
+
+cxx_library(
+    name = "string_utils",
+    header_namespace = 'utils',
+    srcs = [
+        "string_utils.cpp",
+    ],
+    exported_headers = [
+        "string_utils.h",
+    ],
+    visibility = [
+        "//...",
+    ],
+)
