@@ -1,6 +1,8 @@
 #include "prime_utils.h"
 #include <math.h>
 
+namespace utils {
+
 bool isPrime(uint64_t n) {
   if (n <= 1) {
     return false;
@@ -88,3 +90,5 @@ double numPrimesUnder(uint64_t n) {
   // https://en.wikipedia.org/wiki/Prime_number_theorem
   return n / log(n);
 }
+
+} // namespace utils

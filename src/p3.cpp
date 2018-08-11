@@ -13,7 +13,7 @@ int main(int argc, char** argv) {
       continue;
     }
 
-    if (isPrimeFactor(i, limit)) {
+    if (utils::isPrimeFactor(i, limit)) {
       std::cout << i << std::endl;
       break;
     }

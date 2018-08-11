@@ -11,7 +11,7 @@ int32_t bruteForcePrime(int32_t nth_prime) {
   int32_t current_prime = 3;
 
   while (prime_index < nth_prime) {
-    if (isPrime(current_num)) {
+    if (utils::isPrime(current_num)) {
       prime_index++;
       current_prime = current_num;
     }
@@ -30,14 +30,14 @@ int64_t primeUpperLimit(int32_t x, int32_t guess) {
   int64_t high = guess*2;
 
   // Correct for a bad guess
-  while (numPrimesUnder(high) < 2*x) {
+  while (utils::numPrimesUnder(high) < 2*x) {
     high *= 2;
   }
 
   while (high > low + 1) {
     // Pick the middle element
     int64_t mid = (high + low) / 2;
-    int64_t num_primes_under = (int64_t) numPrimesUnder(mid);
+    int64_t num_primes_under = (int64_t) utils::numPrimesUnder(mid);
 
     // std::cout << mid << ":" << high << ":" << low << std::endl;
 
@@ -67,7 +67,7 @@ int32_t sievePrime(int32_t nth_prime) {
   */
 
   uint64_t sieve_limit = primeUpperLimit(nth_prime, 500000);
-  std::vector<uint64_t> primes = genPrimesUnder(sieve_limit + 1);
+  std::vector<uint64_t> primes = utils::genPrimesUnder(sieve_limit + 1);
 
   return primes[nth_prime - 1];
 }

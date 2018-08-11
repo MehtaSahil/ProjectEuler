@@ -1,6 +1,8 @@
 #include "string_utils.h"
 #include <iostream>
 
+namespace utils {
+
 std::vector<std::string> tokenize(
   const std::string& str,
   const std::string& delimeter
@@ -48,3 +50,5 @@ std::vector<std::string> tokenize(
 
   return tokens;
 }
+
+} // namespace utils
