@@ -34,4 +34,3 @@
 # Buck
 .buckd
 buck-out
-.buckconfig
