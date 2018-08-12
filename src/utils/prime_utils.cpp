@@ -71,8 +71,40 @@ std::vector<uint64_t> genPrimesUnder(uint64_t limit) {
   return primes;
 }
 
+// TODO(Sahil) : This does NOT scale well to large numbers. Figure out why
+// and improve runtime. Problem 12 was solved by setting limit = 100 and praying
+// but ideally this would be quick enough to not fudge the details. I think the
+// key is in properly identifying that upper limit properly.
 std::unordered_map<uint32_t, uint32_t> genPrimeFactorization(uint32_t n) {
-  std::unordered_map<uint32_t, uint32_t> factors;
+  std::unordered_map<uint32_t, uint32_t> factorization;
+
+  if (n <= 1) {
+    return factorization;
+  }
+
+  int64_t limit = n/2;
+  std::vector<uint64_t> primes = genPrimesUnder(limit);
+  int32_t prime_index = 0;
+
+  while (prime_index < primes.size()) {
+
+    uint64_t current_prime = primes.at(prime_index);
+
+    if (n % current_prime == 0) {
+      n /= current_prime;
+
+      // Increment the count if we've seen this prime before, otherwise register
+      // this prime as a factor
+      if (factorization.find(current_prime) != factorization.end()) {
+        factorization[current_prime] += 1;
+      } else {
+        factorization.insert(std::pair<char,int>(current_prime, 1));
+      }
+    } else {
+      // If it's not divisible by the current prime, move on to the next prime
+      prime_index++;
+    }
+  }
 
   /*
   1) generate the primes under n
@@ -82,7 +114,7 @@ std::unordered_map<uint32_t, uint32_t> genPrimeFactorization(uint32_t n) {
   4) move to the next prime stopping at the end of the list
   */
 
-  return factors;
+  return factorization;
 }
 
 double numPrimesUnder(uint64_t n) {
