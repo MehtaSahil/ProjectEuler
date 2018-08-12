@@ -86,3 +86,13 @@ cxx_binary(
         "//src/utils:string_utils",
     ]
 )
+
+cxx_binary(
+    name = "p12",
+    srcs = [
+        "p0012.cpp",
+    ],
+    deps = [
+        "//src/utils:prime_utils",
+    ],
+)
