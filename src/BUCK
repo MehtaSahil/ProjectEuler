@@ -96,3 +96,11 @@ cxx_binary(
         "//src/utils:prime_utils",
     ],
 )
+
+
+cxx_binary(
+    name = "p14",
+    srcs = [
+        "p0014.cpp",
+    ],
+)
