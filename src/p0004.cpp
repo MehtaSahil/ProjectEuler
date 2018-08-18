@@ -1,5 +1,7 @@
+#include <algorithm>
 #include <iostream>
 #include <string>
+#include <limits>
 
 // Returns true if val is a palindome, false otherwise
 bool isPalindrome(int32_t val) {
@@ -22,8 +24,7 @@ bool isPalindrome(int32_t val) {
 int main(int argc, char** argv) {
   int limit = 1000;
 
-  int max_val = INT_MIN;
-
+  int max_val = std::numeric_limits<int>::min();
   for (int32_t i = 100; i < limit; i++) {
 
     // start from j = i to prevent testing the same pair twice

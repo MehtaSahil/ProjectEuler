@@ -1,6 +1,8 @@
 #include <iostream>
 #include <unordered_map>
 #include <chrono>
+#include <limits>
+#include <cstdint>
 
 /**
 * Returns length of collatz sequence starting from n and ending at 1
@@ -42,7 +44,7 @@ int main(int argc, char** argv) {
   // Based on preliminary tests, expect speed increases of about 2x
   std::unordered_map<int64_t, int32_t> length_cache;
 
-  int32_t max_length = INT_MIN;
+  int32_t max_length = std::numeric_limits<int32_t>::min();
   int32_t max_num = 0;
 
   auto start = std::chrono::high_resolution_clock::now();

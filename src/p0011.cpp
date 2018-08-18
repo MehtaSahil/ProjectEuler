@@ -1,4 +1,6 @@
 #include <iostream>
+#include <limits>
+#include <cstdint>
 #include "utils/string_utils.h"
 
 int64_t max_square_product(int64_t nums[20][20], int64_t r, int64_t c) {
@@ -20,7 +22,7 @@ int64_t max_square_product(int64_t nums[20][20], int64_t r, int64_t c) {
     products[1] *= nums[r][c-3];
   }
 
-  int64_t max_prod = INT_MIN;
+  int64_t max_prod = std::numeric_limits<int64_t>::min();
   for (const int64_t prod : products) {
     if (prod > max_prod) {
       max_prod = prod;
@@ -49,7 +51,7 @@ int64_t max_diagonal_product(int64_t nums[20][20], int64_t r, int64_t c) {
     products[1] *= nums[r-3][c+3];
   }
 
-  int64_t max_prod = INT_MIN;
+  int64_t max_prod = std::numeric_limits<int64_t>::min();
   for (const int64_t prod : products) {
     if (prod > max_prod) {
       max_prod = prod;
@@ -87,15 +89,15 @@ int main(int argc, char** argv) {
   int64_t nums[20][20];
 
   std::vector<std::string> rows = utils::tokenize(input, "\n");
-  for (int r = 0; r < rows.size(); r++) {
+  for (uint32_t r = 0; r < rows.size(); r++) {
     std::vector<std::string> numbers = utils::tokenize(rows.at(r), " ");
 
-    for (int c = 0; c < numbers.size(); c++) {
+    for (uint32_t c = 0; c < numbers.size(); c++) {
       nums[r][c] = stoi(numbers.at(c));
     }
   }
 
-  int64_t max_num = INT_MIN;
+  int64_t max_num = std::numeric_limits<int64_t>::min();
   for (int r = 0; r < 20; r++) {
     for (int c = 0; c < 20; c++) {
       int64_t square_product = max_square_product(nums, r, c);
