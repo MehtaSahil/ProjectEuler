@@ -1,4 +1,5 @@
 #include <iostream>
+#include <limits>
 
 // multiplies numbers in the range [start_index, stop_index) in str
 // multiplyRange(x, x+13, str) multiplies x, x+1, ..., x+12 (13 numbers)
@@ -39,10 +40,10 @@ int main(int argc, char** argv) {
                       "05886116467109405077541002256983155200055935729725"
                       "71636269561882670428252483600823257530420752963450";
 
-  int64_t max_product = INT_MIN;
+  int64_t max_product = std::numeric_limits<int>::min();
 
-  int32_t start_index = 0;
-  int32_t stop_index = start_index + 13;
+  uint32_t start_index = 0;
+  uint32_t stop_index = start_index + 13;
   while (stop_index < input.length()) {
 
     int64_t candidate = multiplyRange(start_index, stop_index, input);
